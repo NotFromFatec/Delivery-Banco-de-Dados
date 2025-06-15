@@ -1,0 +1,61 @@
+erDiagram
+    CLIENTE {
+        string cpf PK
+        string nome
+        string telefone
+        string logradouro
+        string numero
+        string cep
+        string pontoReferencia
+    }
+    PEDIDO {
+        int id PK
+        datetime data
+        double valorTotal
+        boolean done
+        string cliente_cpf FK
+    }
+    ITEMPEDIDO {
+        int id PK
+        int quantidade
+        int pedido_id FK
+        string prato_id FK
+        int porcao_id FK
+    }
+    PRATO {
+        string id PK
+        string nome
+        double valor
+        int tipo_id FK
+    }
+    TIPO_PRATO {
+        int id PK
+        string nome
+    }
+    TAMANHO_PORCAO {
+        int id PK
+        string nome
+        double valor
+        string prato_id FK
+    }
+    INGREDIENTE {
+        int id PK
+        string nome
+        string formatoApresentacao
+    }
+    PRATO_INGREDIENTE {
+        int id PK
+        string prato_id FK
+        int ingrediente_id FK
+        int porcao_id FK
+    }
+
+    CLIENTE ||--o{ PEDIDO : realiza
+    PEDIDO ||--o{ ITEMPEDIDO : contem
+    ITEMPEDIDO }o--|| PRATO : refere
+    ITEMPEDIDO }o--|| TAMANHO_PORCAO : porcao
+    PRATO }o--|| TIPO_PRATO : tipo
+    PRATO ||--o{ PRATO_INGREDIENTE : possui
+    PRATO_INGREDIENTE }o--|| INGREDIENTE : ingrediente
+    PRATO_INGREDIENTE }o--|| TAMANHO_PORCAO : porcao
+    PRATO ||--o{ TAMANHO_PORCAO : possui

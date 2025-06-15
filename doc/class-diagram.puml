@@ -1,0 +1,78 @@
+@startuml
+class Cliente {
+    +String cpf
+    +String nome
+    +String telefone
+    +String logradouro
+    +String numero
+    +String cep
+    +String pontoReferencia
+}
+
+class Pedido {
+    +Long id
+    +LocalDateTime data
+    +Double valorTotal
+    +boolean done
+    +Cliente cliente
+    +List<ItemPedido> itens
+    +List<Prato> pratos
+}
+
+class ItemPedido {
+    +Long id
+    +Pedido pedido
+    +Prato prato
+    +TamanhoPorcao porcao
+    +Integer quantidade
+}
+
+class Prato {
+    +String id
+    +String nome
+    +Double valor
+    +TipoPrato tipo
+    +List<TamanhoPorcao> tamanhos
+    +List<Ingrediente> ingredientes
+    +List<PratoIngrediente> pratoIngredientes
+}
+
+class TipoPrato {
+    +int id
+    +String nome
+}
+
+class TamanhoPorcao {
+    +int id
+    +Tamanho nome
+    +Double valor
+    +Prato prato
+    enum Tamanho { PEQUENO, MEDIO, GRANDE }
+}
+
+class Ingrediente {
+    +int id
+    +String nome
+    +String formatoApresentacao
+}
+
+class PratoIngrediente {
+    +Long id
+    +Prato prato
+    +Ingrediente ingrediente
+    +TamanhoPorcao porcao
+}
+
+Cliente "1" -- "0..*" Pedido
+Pedido "1" -- "1..*" ItemPedido
+Pedido "1" -- "0..*" Prato
+ItemPedido "1" -- "1" Prato
+ItemPedido "1" -- "1" TamanhoPorcao
+Prato "1" -- "1" TipoPrato
+Prato "1" -- "0..*" PratoIngrediente
+Prato "1" -- "0..*" TamanhoPorcao
+Prato "1" -- "0..*" Ingrediente
+PratoIngrediente "1" -- "1" Ingrediente
+PratoIngrediente "1" -- "1" TamanhoPorcao
+TamanhoPorcao "*" -- "1" Prato
+@enduml

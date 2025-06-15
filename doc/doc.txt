@@ -1,0 +1,48 @@
+Avaliação 3 Laboratório de Banco de Dados
+Prof. Leandro Colevati FATEC ZL
+Considerando o domínio a seguir, montar a modelagem (Diagramas de Classe e ER)
+para o ambiente ser desenvolvido em Java Web (Obrigatoriamente com Spring Boot,
+Spring Web e Spring Data JPA).
+Uma empresa de delivery vende pratos de comidas diversos. Cada prato tem um
+identificador único gerado aleatoriamente e iniciado pela letra P, além de um nome.
+Os pratos são cadastrados por tipo e são vendidos em porções, que definem seu
+valor (pequeno, médio e grande). Todos os pratos são compostos por diversos
+ingredientes, que tem um identificador único, um nome e um formato de
+apresentação. Um ingrediente pode aparecer em diversos pratos, mas em porções
+diferentes. Um cliente pode selecionar vários pratos, de várias porções para
+compra, mas para finalizar a compra, deve estar cadastrado no sistema por seu
+CPF, nome, telefone, endereço composto de logradouro, número e CEP, bem como
+um ponto de referência para entrega. No pedido, além dos pratos que o cliente
+selecionou, deve-se saber a data de realização. Ao finalizar o pedido, o cliente deve
+verificar o que foi comprado e o valor total em tela.
+A aplicação deve ter um CRUD (view, model, controller e repository) para cada
+entidade/objeto definido com suas regras estabelecidas.
+Para os pratos em tela, uma UDF com cursores deve listar os pratos, cada qual com
+seus ingredientes.
+Deve-se poder gerar um relatório em PDF com os dados dos pratos, ingredientes,
+porções e valores de um determinado tipo.
+Deve-se poder gerar um relatório em PDF com os dados de um pedido (Com o valor
+total no cabeçalho), do pedido atual de um cliente.
+Deve-se poder gerar um relatório em PDF com os dados do pratos, ingredientes,
+porção, valor e cliente de um determinado dia.
+Todas as consultas citadas acima devem estar disponíveis na camada view e
+tratadas pela camada controller.
+Serão avaliados, além da solução do código:
+O uso de princípios SOLID (Deve estar comentado no código)
+A qualidade do desenvolvimento e as boas práticas
+A qualidade da usabilidade do sistema pelo usuário
+A qualidade da modelagem do sistema
+A utilização de CSS (Mesmo que Bootstrap nas páginas)
+A qualidade e modularização das programações em SQL
+
+Avaliação 3 Laboratório de Banco de Dados
+Prof. Leandro Colevati FATEC ZL
+Deve-se gerar o mvn site do projeto, customizando as informações dos
+desenvolvedores e o overview do projeto.
+O projeto deve ser carregado no Github e o link encaminhado na tarefa
+correspondente no prazo estipulado.
+O projeto será apresentado, rodando e questionamentos sobre o código, ao
+professor na aula determinada. A apresentação sem o projeto entregue
+antecipadamente na tarefa incorre em desconto da avaliação.
+As modelagens devem estar em uma pasta chamada doc no projeto Java Web.
+Códigos Java ou SQL com semelhanças geram grandes descontos.
